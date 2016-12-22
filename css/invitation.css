@@ -41,6 +41,8 @@
             top:-5px;
         }
         .typewriter__rocker{
+            position:absolute;
+            bottom:150px;
             width: 603px;
             transition: all .5s ease-in-out;
         }
@@ -99,8 +101,8 @@
         .letter {
             position: absolute;
             left: 95px;
-            bottom:412px;
-            bottom:-1344px
+            bottom:348px;
+            bottom:-1409px
             
         } 
         .letter img {

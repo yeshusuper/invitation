@@ -60,10 +60,10 @@ $(function () {
     });
     function writeAnimation() {
         var bottom = parseInt(js_letter.css("bottom"));
-        var v = (412 - bottom) * 10;
+        var v = (348 - bottom) * 10;
         if (v > 0) {
             animationStop();
-            js_letter.stop(true, false).animate({ bottom: "412px" }, v, "linear", function () {
+            js_letter.stop(true, false).animate({ bottom: "348px" }, v, "linear", function () {
                 writeStop();
             });
             needlesTimer = setInterval(function () {
@@ -77,7 +77,7 @@ $(function () {
                 }
             }, 200);
         } else {
-            js_letter.css("bottom", "-1344px");
+            js_letter.css("bottom", "-1409px");
             writeAnimation();
         }
     }
