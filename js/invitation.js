@@ -1,9 +1,6 @@
 $(function () {
     var js_typewriter_btn1 = $(".typewriter__btn_1"),
-        js_btn1 = $(".js_btn1"),
-        js_btn1_current = $(".js_btn1_current"),
-        js_btn2 = $(".js_btn2"),
-        js_btn2_current = $(".js_btn2_current"),
+        js_typewriter_btn2 = $(".typewriter__btn_2"),
         js__rocker = $(".js__rocker"),
         js_letter = $(".letter"),
         js_needle = $(".js_needle"),
@@ -50,45 +47,60 @@ $(function () {
     });
 
     js_typewriter_btn1.on("touchstart", function () {
-        js_btn1.hide();
-        js_btn1_current.show();
+        $(this).addClass("typewriter__btn_1_current");
         soundPlaying = true;
         soundLinePlaying = false;
         js_sound_up.get(0).play();
         writeAnimation();
+        return false;
     }).on("touchend", function () {
-        js_btn1.show();
-        js_btn1_current.hide();
-        soundPlaying = false;
-        soundLinePlaying = false;
-        js_sound_up.get(0).pause();
-        js_letter.stop(true, false);
-        needlesTimer && clearInterval(needlesTimer);
-        currentNeedle && currentNeedle.removeClass("needle_current") && setNeedleRotate(currentNeedle);
+        $(this).removeClass("typewriter__btn_1_current");
+        writeStop();
+        return false;
     });
     function writeAnimation() {
         var bottom = parseInt(js_letter.css("bottom"));
         var v = (412 - bottom) * 10;
-        js_letter.stop(true, false).animate({ bottom: "412px" }, v, "linear", function () {
-            soundPlaying = false;
-        });
+        if (v > 0) {
+            animationStop();
+            js_letter.stop(true, false).animate({ bottom: "412px" }, v, "linear", function () {
+                writeStop();
+            });
+            needlesTimer = setInterval(function () {
+                if (currentNeedle) {
+                    currentNeedle.removeClass("needle_current") && setNeedleRotate(currentNeedle);
+                    currentNeedle = null;
+                } else {
+                    currentNeedle = needles.eq(parseInt(Math.random() * needle_count) - 1)
+                        .css("transform", "")
+                        .addClass("needle_current");
+                }
+            }, 200);
+        } else {
+            js_letter.css("bottom", "-1344px");
+            writeAnimation();
+        }
+    }
+    function animationStop() {
+        js_letter.stop(true, false);
         needlesTimer && clearInterval(needlesTimer);
-        needlesTimer = setInterval(function () {
-            currentNeedle && currentNeedle.removeClass("needle_current") && setNeedleRotate(currentNeedle);
-            currentNeedle = needles.eq(parseInt(Math.random() * needle_count) - 1)
-                .css("transform", "")
-                .addClass("needle_current");
-        }, 200);
+        if (currentNeedle) {
+            currentNeedle.removeClass("needle_current") && setNeedleRotate(currentNeedle);
+            currentNeedle = null;
+        }
     }
 
-    js_btn2.on("touchstart", function () {
-        js_btn2.hide();
-        js_btn2_current.show();
+    function writeStop() {
+        soundPlaying = false;
+        soundLinePlaying = false;
+        js_sound_up.get(0).pause();
+        animationStop();
+    }
 
-    });
-    js_btn2_current.on("touchend", function () {
-        js_btn2.show();
-        js_btn2_current.hide();
+    js_typewriter_btn2.on("touchstart", function () {
+        $(this).addClass("typewriter__btn_2_current");
+    }).on("touchend", function () {
+        $(this).removeClass("typewriter__btn_2_current");
     });
     $(".js_address").magnificPopup({
         type: 'image'

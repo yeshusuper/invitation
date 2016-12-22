@@ -7,6 +7,7 @@
         *{-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0)}
 
         .invitation__page{
+            background-color:#fffff5;
             border:1px solid #fc9ab0;
             width: 640px;
             overflow: hidden;
@@ -57,26 +58,36 @@
             width: 530px;
             -webkit-user-select: none;
         }
-        .typewriter__btn_1{
-            width: 290px;
+        .typewriter__btn_1, .typewriter__btn_1_current{
+            width: 283px;
             height:95px;
             position: absolute;
             top:199px;
             left: 35px;
+            background:url(../images/btn_1.png);
+            background-size:contain;
         }
-        .typewriter__btn_1 img {
-            position: absolute;
+        .typewriter__btn_1_current{
+            background:url(../images/btn_1_current.png) 0 6px no-repeat;
+            background-size:contain;
         }
-        .typewriter__btn_1 .js_btn1_current{
-            bottom:0px;
-            display:none
-        } 
         .typewriter__btn_2 {
             width: 135px;
             height: 95px;
             position: absolute;
             top: 199px;
             right: 35px;
+            background:url(../images/btn_2.png);
+            background-size:contain;
+        }
+        .typewriter__btn_2_current{
+            background:url(../images/btn_2_current.png) 0 6px no-repeat;
+            background-size:contain;
+        }
+        .typewriter__btn_2 a {   
+            display:block;     
+            width: 135px;
+            height: 95px;
         }
         .typewriter__plate{
             width: 90px;
@@ -84,14 +95,6 @@
             position: absolute;
             top:-12px;
             left:220px;
-        }
-        .typewriter__btn_2_current{
-            display: none;
-            width: 135px;
-            height:90px;
-            position: absolute;
-            top:204px;
-            right: 35px;
         }
         .letter {
             position: absolute;
