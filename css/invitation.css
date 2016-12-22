@@ -1,0 +1,105 @@
+﻿html,body,#app,section{height:100%;}
+        body{background:#F2F2F2;font-size:14px;color:#333;margin: 0;padding: 0;}
+        table,p{font-size:14px;}
+        ul,li{margin:0;padding:0;list-style:none;}
+        input{padding:0;}
+        textarea{padding:0;}
+        *{-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+
+        .invitation__page{
+            border:1px solid #fc9ab0;
+            width: 640px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+            height: 100%;
+            perspective:800px;
+            -webkit-perspective:800px;
+        }
+        .typewriter{
+            width:603px;
+            height:423px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0);
+            -webkit-transform: translate(-50%,0);
+            bottom: 0;
+        }
+        
+        .typewriter .needle{
+            background:url(../images/needle.png) 0 -130px;        
+            background-size:2px 377px;   
+            position: absolute;
+            width:2px;
+            height:250px;
+            top:-70px;
+            left:310px;
+        }
+        .typewriter .needle_current{
+            transform:rotate(180deg);
+            top:-5px;
+        }
+        .typewriter__rocker{
+            width: 603px;
+            transition: all .5s ease-in-out;
+        }
+        .typewriter__rocker__move{
+            margin-left: -5px;
+            transition: all .5s ease-in-out;
+        }
+
+        .typewriter__main{
+            position: absolute;
+            left: 46px;
+            top:70px;
+        }
+        .typewriter__img{
+            width: 530px;
+            -webkit-user-select: none;
+        }
+        .typewriter__btn_1{
+            width: 290px;
+            height:95px;
+            position: absolute;
+            top:199px;
+            left: 35px;
+        }
+        .typewriter__btn_1 img {
+            position: absolute;
+        }
+        .typewriter__btn_1 .js_btn1_current{
+            bottom:0px;
+            display:none
+        } 
+        .typewriter__btn_2 {
+            width: 135px;
+            height: 95px;
+            position: absolute;
+            top: 199px;
+            right: 35px;
+        }
+        .typewriter__plate{
+            width: 90px;
+            height:45px;
+            position: absolute;
+            top:-12px;
+            left:220px;
+        }
+        .typewriter__btn_2_current{
+            display: none;
+            width: 135px;
+            height:90px;
+            position: absolute;
+            top:204px;
+            right: 35px;
+        }
+        .letter {
+            position: absolute;
+            left: 95px;
+            bottom:412px;
+            bottom:-1344px
+            
+        } 
+        .letter img {
+            width: 460px;
+        }
