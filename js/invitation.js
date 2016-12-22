@@ -98,11 +98,16 @@ $(function () {
     }
 
     js_typewriter_btn2.on("touchstart", function () {
+/*
         $(this).addClass("typewriter__btn_2_current");
+*/
     }).on("touchend", function () {
+/*
         $(this).removeClass("typewriter__btn_2_current");
+*/
     });
     $(".js_address").magnificPopup({
         type: 'image'
     });
+    $("img").on("tounchstart,touchend,taphold", function(){ return false; });
 });

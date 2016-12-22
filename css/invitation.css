@@ -6,9 +6,9 @@
         textarea{padding:0;}
         *{-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0)}
 
+        img { pointer-events: none; }
         .invitation__page{
             background-color:#fffff5;
-            border:1px solid #fc9ab0;
             width: 640px;
             overflow: hidden;
             margin: 0 auto;
@@ -44,6 +44,9 @@
             position:absolute;
             bottom:150px;
             width: 603px;
+            left: 50%;
+            transform: translate(-50%,0);
+            -webkit-transform: translate(-50%,0);
             transition: all .5s ease-in-out;
         }
         .typewriter__rocker__move{
@@ -66,7 +69,7 @@
             position: absolute;
             top:199px;
             left: 35px;
-            background:url(../images/btn_1.png);
+            background:url(../images/btn_1.png) no-repeat;
             background-size:contain;
         }
         .typewriter__btn_1_current{
@@ -77,9 +80,9 @@
             width: 135px;
             height: 95px;
             position: absolute;
-            top: 199px;
+            top: 201px;
             right: 35px;
-            background:url(../images/btn_2.png);
+            background:url(../images/btn_2.png) no-repeat;
             background-size:contain;
         }
         .typewriter__btn_2_current{
@@ -101,8 +104,12 @@
         .letter {
             position: absolute;
             left: 95px;
+            /*
             bottom:348px;
-            bottom:-1409px
+            bottom:-1409px;
+            */
+            bottom:-1000px;
+            border:1px solid #ccc;
             
         } 
         .letter img {
